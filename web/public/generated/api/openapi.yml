@@ -2255,6 +2255,15 @@ paths:
           required: true
           schema:
             type: string
+        - name: useEventsTable
+          in: query
+          description: >-
+            Use the events table for querying observations. If not provided,
+            defaults to the environment configuration.
+          required: false
+          schema:
+            type: boolean
+            nullable: true
       responses:
         '200':
           description: ''
@@ -2388,6 +2397,15 @@ paths:
           required: false
           schema:
             type: string
+            nullable: true
+        - name: useEventsTable
+          in: query
+          description: >-
+            Use the events table for querying observations. If not provided,
+            defaults to the environment configuration.
+          required: false
+          schema:
+            type: boolean
             nullable: true
       responses:
         '200':

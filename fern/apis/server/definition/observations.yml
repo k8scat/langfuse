@@ -14,6 +14,12 @@ service:
         observationId:
           type: string
           docs: The unique langfuse identifier of an observation, can be an event, span or generation
+      request:
+        name: GetObservationRequest
+        query-parameters:
+          useEventsTable:
+            type: optional<boolean>
+            docs: Use the events table for querying observations. If not provided, defaults to the environment configuration.
       response: commons.ObservationsView
     getMany:
       docs: Get a list of observations
@@ -49,6 +55,9 @@ service:
           version:
             type: optional<string>
             docs: Optional filter to only include observations with a certain version.
+          useEventsTable:
+            type: optional<boolean>
+            docs: Use the events table for querying observations. If not provided, defaults to the environment configuration.
       response: ObservationsViews
 
 types:

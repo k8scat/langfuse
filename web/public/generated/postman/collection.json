@@ -1721,7 +1721,7 @@
           "request": {
             "description": "Get a observation",
             "url": {
-              "raw": "{{baseUrl}}/api/public/observations/:observationId",
+              "raw": "{{baseUrl}}/api/public/observations/:observationId?useEventsTable=",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -1731,7 +1731,13 @@
                 "observations",
                 ":observationId"
               ],
-              "query": [],
+              "query": [
+                {
+                  "key": "useEventsTable",
+                  "value": "",
+                  "description": "Use the events table for querying observations. If not provided, defaults to the environment configuration."
+                }
+              ],
               "variable": [
                 {
                   "key": "observationId",
@@ -1753,7 +1759,7 @@
           "request": {
             "description": "Get a list of observations",
             "url": {
-              "raw": "{{baseUrl}}/api/public/observations?page=&limit=&name=&userId=&type=&traceId=&level=&parentObservationId=&environment=&fromStartTime=&toStartTime=&version=",
+              "raw": "{{baseUrl}}/api/public/observations?page=&limit=&name=&userId=&type=&traceId=&level=&parentObservationId=&environment=&fromStartTime=&toStartTime=&version=&useEventsTable=",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -1822,6 +1828,11 @@
                   "key": "version",
                   "value": "",
                   "description": "Optional filter to only include observations with a certain version."
+                },
+                {
+                  "key": "useEventsTable",
+                  "value": "",
+                  "description": "Use the events table for querying observations. If not provided, defaults to the environment configuration."
                 }
               ],
               "variable": []
