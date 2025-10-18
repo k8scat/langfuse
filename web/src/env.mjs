@@ -145,6 +145,7 @@ export const env = createEnv({
     AUTH_WORKOS_ORGANIZATION_ID: z.string().optional(),
     AUTH_WORKOS_CONNECTION_ID: z.string().optional(),
     AUTH_DOMAINS_WITH_SSO_ENFORCEMENT: z.string().optional(),
+    AUTH_EMAILS_CAN_SIGNUP: z.string().optional(),
     AUTH_IGNORE_ACCOUNT_FIELDS: z.string().optional(),
     AUTH_DISABLE_USERNAME_PASSWORD: z.enum(["true", "false"]).optional(),
     AUTH_DISABLE_SIGNUP: z.enum(["true", "false"]).optional(),

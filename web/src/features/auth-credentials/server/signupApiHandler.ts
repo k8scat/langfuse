@@ -13,6 +13,14 @@ export function getSSOBlockedDomains() {
   );
 }
 
+export function getCanSignupEmails() {
+  return (
+    env.AUTH_EMAILS_CAN_SIGNUP?.split(",")
+      .map((email) => email.trim().toLowerCase())
+      .filter(Boolean) ?? []
+  );
+}
+
 /*
  * Sign-up endpoint (email/password users), creates user in database.
  * SSO users are created by the NextAuth adapters.
@@ -47,6 +55,14 @@ export async function signupApiHandler(
   }
 
   const body = validBody.data;
+
+  const canSignupEmails = getCanSignupEmails();
+  if (!canSignupEmails.includes(body.email.toLowerCase())) {
+    res.status(422).json({
+      message: "Cannot sign up with this email."
+    });
+    return;
+  }
 
   // check if email domain is blocked from email/password sign up via env
   const blockedDomains = getSSOBlockedDomains();
