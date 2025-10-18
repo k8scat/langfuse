@@ -23,7 +23,7 @@ import { type ReactNode } from "react";
 import { type Entitlement } from "@/src/features/entitlements/constants/entitlements";
 import { type User } from "next-auth";
 import { type OrganizationScope } from "@/src/features/rbac/constants/organizationAccessRights";
-import { SupportButton } from "@/src/components/nav/support-button";
+// import { SupportButton } from "@/src/components/nav/support-button";
 import { SidebarMenuButton } from "@/src/components/ui/sidebar";
 import { useCommandMenu } from "@/src/features/command-k-menu/CommandMenuProvider";
 import { usePostHogClientCapture } from "@/src/features/posthog-analytics/usePostHogClientCapture";
@@ -204,13 +204,13 @@ export const ROUTES: Route[] = [
     icon: Settings,
     section: RouteSection.Secondary,
   },
-  {
-    title: "Support",
-    icon: LifeBuoy,
-    section: RouteSection.Secondary,
-    pathname: "", // Empty pathname since this is a dropdown
-    menuNode: <SupportButton />,
-  },
+  // {
+  //   title: "Support",
+  //   icon: LifeBuoy,
+  //   section: RouteSection.Secondary,
+  //   pathname: "", // Empty pathname since this is a dropdown
+  //   menuNode: <SupportButton />,
+  // },
 ];
 
 function CommandMenuTrigger() {
